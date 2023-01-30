@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="card-body">
-        <form method="POST" action="/obat">
+        <form method="POST" action="/merk">
             @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Kode</label>
