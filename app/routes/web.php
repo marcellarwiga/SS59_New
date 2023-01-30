@@ -27,5 +27,5 @@ Route::middleware('auth')->group(function () {
     //Management Obat
     Route::get('/obat', [ObatController::class, 'index']);
     Route::get('/obat/form', [ObatController::class, 'create']);
-    
+    Route::post('/obat', [ObatController::class, 'store']);
 });

@@ -53,8 +53,8 @@
         @foreach ($obat as $item)
      <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
+      <td>{{$item->nama}}</td>
+      <td>{{$item->jenis}}</td>
       <td>
         <a href="#" class="btn btn-primary">Edit</a>
         <a href="#" class="btn btn-danger">Hapus</a>
