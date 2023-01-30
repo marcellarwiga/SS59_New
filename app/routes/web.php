@@ -19,12 +19,13 @@ Route::get('/', function () {
     return view('layouts.master');
 })->middleware('auth');
 
-Route::middleware('auth')->group(function () {
-    //Management Obat
-    Route::get('/obat', [ObatController::class, 'index']);
-    
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    //Management Obat
+    Route::get('/obat', [ObatController::class, 'index']);
+    Route::get('/obat/form', [ObatController::class, 'create']);
+    
+});

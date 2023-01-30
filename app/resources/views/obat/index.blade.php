@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('judul', 'Data Obat')
 @section('content-header')
+
+
 <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -17,13 +19,16 @@
     </div><!-- /.container-fluid -->
   </section>
 @endsection
+
+
 @section('content')
 <section class="content">
 
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Title</h3>
+        {{-- <h3 class="card-title">Title</h3> --}}
+        <a href="obat/form" class="btn btn-primary">Tambah Data</a>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -35,11 +40,29 @@
         </div>
       </div>
       <div class="card-body">
-        Start creating your amazing application!
-      </div>
-      <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+        <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Kode</th>
+      <th scope="col">Merk</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+    <tbody>
+        @foreach ($obat as $item)
+     <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>
+        <a href="#" class="btn btn-primary">Edit</a>
+        <a href="#" class="btn btn-danger">Hapus</a>
+      </td>
+    </tr>
+        @endforeach
+    
+    <tbody>
 
   </section>
 @endsection
