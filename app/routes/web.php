@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ObatController;
+use App\Http\Controllers\MerkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.master');
 })->middleware('auth');
+
+Route::middleware('auth')->group(function () {
+    //Management Obat
+    Route::get('/obat', [ObatController::class, 'index']);
+    
+});
 
 Auth::routes();
 
