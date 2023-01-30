@@ -26,6 +26,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->group(function () {
     //Management Obat
     Route::get('/obat', [ObatController::class, 'index']);
+    Route::get('/merk', [MerkController::class, 'index']);
     Route::get('/obat/form', [ObatController::class, 'create']);
+    Route::get('/merk/form', [MerkController::class, 'create']);
     Route::post('/obat', [ObatController::class, 'store']);
+    Route::post('/merk', [MerkController::class, 'store']);
 });

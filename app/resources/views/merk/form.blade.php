@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('judul', 'Data Obat')
+@section('judul', 'Data Merk')
 @section('content-header')
 
 
@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Obat</h1>
+          <h1>Tambah Data Merk</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,6 @@
     <div class="card">
       <div class="card-header">
         {{-- <h3 class="card-title">Title</h3> --}}
-        <a href="obat/form" class="btn btn-primary">Tambah Data</a>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -40,29 +39,18 @@
         </div>
       </div>
       <div class="card-body">
-        <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Kode</th>
-      <th scope="col">Merk</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-    <tbody>
-        @foreach ($obat as $item)
-     <tr>
-      <th scope="row">{{$nomor++}}</th>
-      <td>{{$item->nama}}</td>
-      <td>{{$item->jenis}}</td>
-      <td>
-        <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Hapus</a>
-      </td>
-    </tr>
-        @endforeach
-    
-    <tbody>
+        <form method="POST" action="/obat">
+            @csrf
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Kode</label>
+              <input type="text" name="kode" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+             </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Merk</label>
+              <input type="merk" name="merk" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Tambah Data</button>
+          </form>
 
   </section>
 @endsection

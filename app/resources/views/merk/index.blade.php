@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Data Obat</h1>
+          <h1>Data Merk</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -28,7 +28,7 @@
     <div class="card">
       <div class="card-header">
         {{-- <h3 class="card-title">Title</h3> --}}
-        <a href="obat/form" class="btn btn-primary">Tambah Data</a>
+        <a href="merk/form" class="btn btn-primary">Tambah Data</a>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -49,20 +49,6 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-    <tbody>
-        @foreach ($obat as $item)
-     <tr>
-      <th scope="row">{{$nomor++}}</th>
-      <td>{{$item->nama}}</td>
-      <td>{{$item->jenis}}</td>
-      <td>
-        <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Hapus</a>
-      </td>
-    </tr>
-        @endforeach
-    
-    <tbody>
 
   </section>
 @endsection

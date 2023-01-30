@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Merk;
 
 class MerkController extends Controller
 {
@@ -13,7 +14,9 @@ class MerkController extends Controller
      */
     public function index()
     {
-        //
+        $nomor = 1;
+        $merk = Merk::all();
+        return view('merk.index',compact('nomor','merk'));
     }
 
     /**
@@ -23,7 +26,7 @@ class MerkController extends Controller
      */
     public function create()
     {
-        //
+        return view('merk.form');
     }
 
     /**
@@ -34,7 +37,13 @@ class MerkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $merk = new Merk;
+
+        $merk->kode = $request->kode;
+        $merk->merk = $request->merk;
+        $merk->save();
+
+        return redirect('/merk');
     }
 
     /**
