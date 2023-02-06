@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('judul', 'Data Merk')
+@section('judul', 'Tambah Data Merk')
 @section('content-header')
 
 

@@ -31,4 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/merk/form', [MerkController::class, 'create']);
     Route::post('/obat', [ObatController::class, 'store']);
     Route::post('/merk', [MerkController::class, 'store']);
+    Route::get('/merk/edit/{id}', [MerkController::class, 'edit']);
+    Route::put('/merk/{id}', [MerkController::class, 'update']);
 });
