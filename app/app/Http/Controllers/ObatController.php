@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Obat;
+use App\Models\Merk;
 
 class ObatController extends Controller
 {
@@ -26,7 +27,8 @@ class ObatController extends Controller
      */
     public function create()
     {
-        return view('obat.form');
+        $merk = Merk::all();
+        return view('obat.form',compact('merk'));
     }
 
     /**
@@ -41,7 +43,9 @@ class ObatController extends Controller
 
         $obat->nama = $request->nama;
         $obat->jenis = $request->jenis;
+        $obat->merks_id = $request->merk;
         $obat->harga = $request->harga;
+        $obat->foto = "default.jpg";
         $obat->save();
 
         return redirect('/obat');

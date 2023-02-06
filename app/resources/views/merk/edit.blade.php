@@ -44,7 +44,7 @@
             @csrf
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Kode</label>
-              <input type="text" name="kode" readonly value="{{$merk->kode}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" name="kode" value="{{$merk->kode}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
              </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Merk</label>
