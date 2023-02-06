@@ -57,7 +57,7 @@
   <th scope="row">{{$nomor++}}</th>
   <td>{{$item->nama}}</td>
   <td>{{$item->jenis}}</td>
-  <td>{{$item->merks_id}}</td>
+  <td>{{$item->merks->merk}}</td>
   <td>{{$item->harga}}</td>
   <td>
     <a href="/merk/edit/{{$item->id}}" class="btn btn-primary">Edit</a>
