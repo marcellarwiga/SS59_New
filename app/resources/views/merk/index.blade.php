@@ -12,7 +12,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Data Merk</li>
           </ol>
         </div>
       </div>
@@ -57,7 +57,35 @@
   <td>{{$item->merk}}</td>
   <td>
     <a href="/merk/edit/{{$item->id}}" class="btn btn-primary">Edit</a>
-    <a href="#" class="btn btn-danger">Hapus</a>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default{{$item->id}}">
+      Hapus
+    </button>
+
+    <div class="modal fade" id="modal-default{{$item->id}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Warning</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Apakah anda yakin ingin menghapus data {{$item->merk}} ?&hellip;</p>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+            <form action="/merk/{{$item->id}}" method="POST">
+              @method('DELETE')
+              @csrf
+            <button type="submit" class="btn btn-primary">Ya</button>
+          </form>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
   </td>
 </tr>
     @endforeach

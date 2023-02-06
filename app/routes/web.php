@@ -33,4 +33,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/merk', [MerkController::class, 'store']);
     Route::get('/merk/edit/{id}', [MerkController::class, 'edit']);
     Route::put('/merk/{id}', [MerkController::class, 'update']);
+    Route::delete('/merk/{id}', [MerkController::class, 'destroy']);
 });
