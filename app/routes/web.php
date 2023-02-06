@@ -26,11 +26,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->group(function () {
     //Management Obat
     Route::get('/obat', [ObatController::class, 'index']);
-    Route::get('/merk', [MerkController::class, 'index']);
+    Route::post('/obat', [ObatController::class, 'store']);    
     Route::get('/obat/form', [ObatController::class, 'create']);
+    Route::get('/obat/edit/{id}', [ObatController::class, 'edit']);
+    Route::put('/obat/{id}', [ObatController::class, 'update']);
+    Route::delete('/obat/{id}', [ObatController::class, 'destroy']);
+
+
+    Route::get('/merk', [MerkController::class, 'index']);
+    Route::post('/merk', [MerkController::class, 'store']);    
     Route::get('/merk/form', [MerkController::class, 'create']);
-    Route::post('/obat', [ObatController::class, 'store']);
-    Route::post('/merk', [MerkController::class, 'store']);
     Route::get('/merk/edit/{id}', [MerkController::class, 'edit']);
     Route::put('/merk/{id}', [MerkController::class, 'update']);
     Route::delete('/merk/{id}', [MerkController::class, 'destroy']);

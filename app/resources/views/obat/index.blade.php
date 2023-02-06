@@ -12,7 +12,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">Data Obat</li>
           </ol>
         </div>
       </div>
@@ -44,25 +44,55 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Kode</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Jenis</th>
       <th scope="col">Merk</th>
+      <th scope="col">Harga</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
-    <tbody>
-        @foreach ($obat as $item)
-     <tr>
-      <th scope="row">{{$nomor++}}</th>
-      <td>{{$item->nama}}</td>
-      <td>{{$item->jenis}}</td>
-      <td>
-        <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Hapus</a>
-      </td>
-    </tr>
-        @endforeach
-    
-    <tbody>
+  <tbody>
+    @foreach ($obat as $item)
+ <tr>
+  <th scope="row">{{$nomor++}}</th>
+  <td>{{$item->nama}}</td>
+  <td>{{$item->jenis}}</td>
+  <td>{{$item->merks_id}}</td>
+  <td>{{$item->harga}}</td>
+  <td>
+    <a href="/merk/edit/{{$item->id}}" class="btn btn-primary">Edit</a>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default{{$item->id}}">
+      Hapus
+    </button>
+
+    <div class="modal fade" id="modal-default{{$item->id}}">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Warning</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Apakah anda yakin ingin menghapus data {{$item->merk}} ?&hellip;</p>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+            <form action="/merk/{{$item->id}}" method="POST">
+              @method('DELETE')
+              @csrf
+            <button type="submit" class="btn btn-primary">Ya</button>
+          </form>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+  </td>
+</tr>
+    @endforeach
 
   </section>
 @endsection
