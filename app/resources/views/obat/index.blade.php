@@ -60,7 +60,7 @@
   <td>{{$item->merks->merk}}</td>
   <td>{{$item->harga}}</td>
   <td>
-    <a href="/merk/edit/{{$item->id}}" class="btn btn-primary">Edit</a>
+    <a href="/obat/edit/{{$item->id}}" class="btn btn-primary">Edit</a>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-default{{$item->id}}">
       Hapus
     </button>
@@ -75,11 +75,11 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>Apakah anda yakin ingin menghapus data {{$item->merk}} ?&hellip;</p>
+            <p>Apakah anda yakin ingin menghapus data {{$item->nama}} ?</p>
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-            <form action="/merk/{{$item->id}}" method="POST">
+            <form action="/obat/{{$item->id}}" method="POST">
               @method('DELETE')
               @csrf
             <button type="submit" class="btn btn-primary">Ya</button>

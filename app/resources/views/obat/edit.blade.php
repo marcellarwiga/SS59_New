@@ -10,7 +10,7 @@
           <h1>Edit Data Obat</h1>
         </div>
         <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">x
+          <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item active">Data Obat</li>
           </ol>
@@ -39,17 +39,38 @@
         </div>
       </div>
       <div class="card-body">
-        <form method="POST" action="/merk/{{$merk->id}}">
+        <form method="POST" action="/obat/{{$obat->id}}">
             @method('PUT')
             @csrf
-            <div class="mb-3">
+            {{-- <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Kode</label>
               <input type="text" name="kode" readonly value="{{$merk->kode}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
              </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Merk</label>
               <input type="merk" name="merk" value="{{$merk->merk}}" class="form-control" id="exampleInputPassword1">
-            </div>
+            </div> --}}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nama</label>
+                <input type="text" name="nama" value="{{$obat->nama}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+               </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Jenis</label>
+                <input type="text" name="jenis" value="{{$obat->jenis}}" class="form-control" id="exampleInputEmail1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Merk</label>
+                <select name="merk" class="form-control" id="">
+                  <option value="">Pilih Merk</option>
+                   @foreach ($merk as $item)
+                  <option value="{{$item->id}}" {{$obat->merks_id == $item->id ? "selected" : ""}}>{{$item->kode}} - {{$item->merk}}</option>
+                  @endforeach
+               </select>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Harga</label>
+                <input type="merk" name="harga" value="{{$obat->harga}}" class="form-control" id="exampleInputEmail1">
+              </div>
             <button type="submit" class="btn btn-primary">Edit Data</button>
           </form>
 

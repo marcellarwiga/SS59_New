@@ -70,7 +70,10 @@ class ObatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $obat = Obat::find($id);
+        $merk = Merk::all();
+
+        return view('obat.edit',compact('obat','merk'));
     }
 
     /**
@@ -82,7 +85,15 @@ class ObatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obat = Obat::find($id);
+
+        $obat->nama = $request->nama;
+        $obat->jenis = $request->jenis;
+        $obat->merks_id = $request->merk;
+        $obat->harga = $request->harga;
+        $obat->save();
+
+        return redirect('/obat');
     }
 
     /**
@@ -93,6 +104,9 @@ class ObatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obat = Obat::find($id);
+        $obat->delete();
+
+        return redirect('/obat');
     }
 }
